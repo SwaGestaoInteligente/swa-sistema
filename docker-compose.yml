@@ -1,0 +1,45 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: swa-mobile-app
+    depends_on:
+      postgres:
+        condition: service_healthy
+    env_file:
+      - .env
+    environment:
+      DB_CONNECTION: pgsql
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_DATABASE: swa_vistoria_db
+      DB_USERNAME: swa_vistoria_user
+      DB_PASSWORD: strong_password
+    ports:
+      - "8000:8000"
+    command: >
+      sh -lc "php artisan migrate --force &&
+              php artisan serve --host=0.0.0.0 --port=8000"
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: swa-mobile-postgres
+    environment:
+      POSTGRES_DB: swa_vistoria_db
+      POSTGRES_USER: swa_vistoria_user
+      POSTGRES_PASSWORD: strong_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U swa_vistoria_user -d swa_vistoria_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    restart: unless-stopped
+
+volumes:
+  postgres_data:

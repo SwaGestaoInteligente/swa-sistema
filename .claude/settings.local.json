@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(fly ssh console --command \"stat -c ''%U %G %a'' /var/www/html/storage/app/private\")",
+      "Bash(fly ssh console --command \"chown -R www-data:www-data /var/www/html/storage/app && chmod -R 775 /var/www/html/storage/app && stat -c ''%U %G %a'' /var/www/html/storage/app/private\")",
+      "Bash(fly ssh console --command \"chmod 775 /var/www/html/storage/app/private\")",
+      "Bash(fly ssh console --command \"php /var/www/html/artisan tinker --execute=''echo class_exists\\(\"\"Barryvdh\\\\\\\\DomPDF\\\\\\\\Facade\\\\\\\\Pdf\"\"\\) ? \"\"DOMPDF_OK\"\" : \"\"DOMPDF_MISSING\"\";''\")",
+      "Bash(fly deploy --ha=false)"
+    ]
+  }
+}

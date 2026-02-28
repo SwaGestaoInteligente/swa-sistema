@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(php artisan route:list --compact)",
+      "Bash(php artisan route:list)",
+      "Bash(php artisan test)",
+      "Bash(php artisan migrate:status)",
+      "Bash(php artisan config:show app)",
+      "Bash(magick --version)",
+      "Bash(convert --version)",
+      "Bash(php -r \"echo extension_loaded\\(''gd''\\) ? ''GD OK'' : ''GD ausente'';\")",
+      "Bash(php -r \"echo extension_loaded\\(''imagick''\\) ? ''Imagick OK'' : ''Imagick ausente'';\")",
+      "Bash(node -e \"const fs=require\\(''fs''\\);console.log\\(''Node OK''\\);\")",
+      "Bash(pip install Pillow --quiet)"
+    ]
+  }
+}

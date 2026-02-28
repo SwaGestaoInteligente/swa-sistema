@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b2e66">
+  <title>SWA Offline</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(180deg, #edf4ff 0%, #f8fbff 100%);
+      color: #10264d;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      padding: 16px;
+    }
+    .card {
+      width: min(560px, 100%);
+      border: 1px solid #d5e1f1;
+      border-radius: 16px;
+      background: #fff;
+      padding: 20px;
+      box-shadow: 0 16px 32px rgba(8, 33, 74, 0.08);
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: 24px;
+      color: #0b2e66;
+    }
+    p {
+      margin: 0 0 10px;
+      color: #557097;
+      line-height: 1.45;
+    }
+    .tip {
+      margin-top: 12px;
+      border: 1px solid #e5cb86;
+      border-radius: 10px;
+      padding: 10px;
+      background: #fff7df;
+      color: #6f4e00;
+      font-size: 14px;
+    }
+    button {
+      margin-top: 12px;
+      border: 0;
+      border-radius: 10px;
+      background: linear-gradient(180deg, #0b2e66 0%, #08214a 100%);
+      color: #fff;
+      min-height: 42px;
+      padding: 10px 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1>Sem internet no momento</h1>
+    <p>Você está no modo offline do SWA. Páginas já visitadas podem abrir normalmente.</p>
+    <p>Quando a internet voltar, o sistema tenta sincronizar automaticamente o que ficou salvo em fila local.</p>
+    <div class="tip">Formulários e evidências compatíveis entram em fila offline e são reenviados assim que a conexão retornar.</div>
+    <button type="button" onclick="location.reload()">Tentar novamente</button>
+  </main>
+</body>
+</html>
